@@ -14,6 +14,10 @@ applicants_collection = db["applicants_details"]
 def status():
     return render_template('status.html')
 
+@app.route('/chat')
+def chat():
+    return render_template('chat.html')
+
 @app.route('/about')
 def about():
     return render_template('about.html')
@@ -103,6 +107,10 @@ def upload():
 def get_applications():
     applications = list(applicants_collection.find())
     return jsonify(applications), 200
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
