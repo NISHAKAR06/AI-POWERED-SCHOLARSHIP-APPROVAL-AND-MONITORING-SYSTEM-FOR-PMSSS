@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" text="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" text="text/css" href="{{ url_for('static', filename='css/style2.css') }}">
+  <title>My Website</title>
+  
+</head>
+<body>
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero">
+            <h1><span>P</span>M<span>SSS</span></h1>
+          </a>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            
+            <li><a href="{{ url_for('upload') }}">Upload Documents</a></li>
+            <li><a href="{{ url_for('status') }}">Check Status</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <div class="container">
+    
+        <div class="form-container" >
+            <h2>Registration Details</h2>
+            <form action="{{ url_for('apply') }}" id="registrationForm" method="POST">
+
+                <div class="section" style="font: size 20px;">
+                    <label>State of Domicile</label>
+                    <input type="text"  id="domicile_state" name="domicile_state" placeholder="Jammu & Kashmir">
+      
+                    <label>Scholarship Category</label>
+                    <input type="text" id="scholarship_category" name="scholarship_category" placeholder="Post Matric/Top Class/MCM">
+
+                    <label>Name of Student</label>
+                    <input type="text" id="student_name" name="student_name" placeholder="SYED RIZWAN">
+
+                    <label>Date of Birth</label>
+                    <input type="date" id="dob" name="dob">
+
+                    <label>Gender</label>
+                    <input type="text" id="gender" name="gender" placeholder="Male">
+
+                    <label>Single Girl Child</label>
+                    <input type="text" id="single_girl_child" name="single_girl_child" placeholder="No">
+
+                    <label>Community/Category</label>
+                    <input type="text" id="community_category" name="community_category" placeholder="Muslim">
+
+                    <label>Religion</label>
+                    <input type="text" id="religion" name="religion" placeholder="Muslim">
+
+                    <label>Father Name</label>
+                    <input type="text" id="father_name" name="father_name" placeholder="SYED IMRAN">
+
+                    <label>Mother Name</label>
+                    <input type="text" id="mother_name" name="mother_name" placeholder="SYEDA HALIMA">
+
+                    <label>Aadhaar Number</label>
+                    <input type="text" id="aadhaar_number" name="aadhaar_number" placeholder="XXXX-XXXX-XXXX">
+
+                    <label>Mobile Number</label>
+                    <input type="text" id="mobile_number" name="mobile_number" placeholder="1234567890">
+                
+                    <label>Email ID</label>
+                    <input type="text" id="email" name="email" placeholder="syedm@example.com">
+
+                    <label>Day Scholar/Hosteler</label>
+                    <input type="text" id="day_scholar_hosteler" name="day_scholar_hosteler" placeholder="Hosteler">
+                </div>
+
+                <h2>Academic Details</h2>
+                <div class="section">
+                    <label>Institute Name</label>
+                    <input type="text" id="institute_name" name="institute_name" placeholder="COLLEGE OF ENGINEERING AND TECHNOLOGY">
+
+                    <label>Present Class/Course</label>
+                    <input type="text" id="present_class_course" name="present_class_course"  placeholder="BACHELOR OF ENGINEERING">
+
+                    <label>Present Class Year</label>
+                    <input type="text" id="present_class_year" name="present_class_year" placeholder="4th Year">
+
+                    <label>Mode of Study</label>
+                    <input type="text" id="mode_of_study" name="mode_of_study" placeholder="Regular">
+
+                    <label>Present Class Start Date</label>
+                    <input type="date" id="present_class_start_date" name="present_class_start_date">
+
+                    <label>Previous Board/University name</label>
+                    <input type="text" id="previous_board_university" name="previous_board_university" placeholder="ANDHRA PRADESH BOARD OF SECONDARY">
+
+                    <label>10th Class Roll No</label>
+                    <input type="text" id="tenth_roll_no" name="tenth_roll_no" placeholder="XXXXXX">
+
+                    <label>10th Passing Year</label>
+                    <input type="text" id="tenth_passing_year" name="tenth_passing_year" placeholder="2015">
+
+                    <label>12th Class Roll No</label>
+                    <input type="text" id="twelfth_roll_no" name="twelfth_roll_no" placeholder="XXXXXX">
+
+                    <label>12th Passing Year</label>
+                    <input type="text" id="twelfth_passing_year" name="twelfth_passing_year" placeholder="2017">
+                </div>
+
+                <h2>Basic Details</h2>
+                <div class="section">
+                    <label>Is Orphan</label>
+                    <select>
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+
+                    <label>Guardian Name</label>
+                    <input type="text" id="guardian_name" name="guardian_name" placeholder="N/A">
+
+                    <label>Is Disabled</label>
+                    <select id="is_disabled" name="is_disabled">
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+
+                    <label>Type of Disability</label>
+                    <input type="text" id="disability_type" name="disability_type" placeholder="">
+
+                    <label>Marital Status</label>
+                    <select id="marital_status" name="marital_status">
+                        <option>Married</option>
+                        <option>Single</option>
+                    </select>
+
+                    <label>Parents Profession</label>
+                    <input type="text" id="parents_profession" name="parents_profession" placeholder="Others">
+
+                    <label>IFSC Code</label>
+                    <input type="text" id="ifsc_code" name="ifsc_code" placeholder="IFSC1234">
+
+                    <label>Bank Account Number</label>
+                    <input type="text" id="bank_account_number" name="bank_account_number" placeholder="123456789012">
+                </div>
+                <button>
+                  Save & continue
+                  </button>
+            </form>
+        </div>
+    </div>
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("registrationForm");
+
+  form.addEventListener("submit", function (e) {
+    let valid = true;
+
+    // Validation Rules
+    const nameRegex = /^[a-zA-Z\s]+$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const phoneRegex = /^[6-9]\d{9}$/;
+    const aadhaarRegex = /^\d{4}\d{4}\d{4}$/;
+    const ifscRegex = /^[A-Z]{4}0[A-Z0-9]{6}$/;
+
+    // Utility function to validate input fields
+    function validateInput(input, regex, errorMsg) {
+      if (!regex.test(input.value.trim())) {
+        alert(errorMsg);
+        input.focus();
+        valid = false;
+      }
+    }
+
+    // Required Fields Check
+    const requiredFields = [
+      "domicile_state",
+      "scholarship_category",
+      "student_name",
+      "dob",
+      "gender",
+      "aadhaar_number",
+      "mobile_number",
+      "email",
+      "institute_name",
+      "present_class_course",
+      "present_class_year",
+      "present_class_start_date",
+      "ifsc_code",
+      "bank_account_number"
+    ];
+
+    requiredFields.forEach((id) => {
+      const field = document.getElementById(id);
+      if (!field.value.trim()) {
+        alert(`The field "${field.previousElementSibling.innerText}" is required.`);
+        field.focus();
+        valid = false;
+        e.preventDefault();
+      }
+    });
+
+    // Individual Field Validations
+    const studentName = document.getElementById("student_name");
+    validateInput(studentName, nameRegex, "Name should contain only letters and spaces.");
+
+    const email = document.getElementById("email");
+    validateInput(email, emailRegex, "Please enter a valid email address.");
+
+    const mobile = document.getElementById("mobile_number");
+    validateInput(mobile, phoneRegex, "Please enter a valid 10-digit mobile number.");
+
+    const aadhaar = document.getElementById("aadhaar_number");
+    validateInput(aadhaar, aadhaarRegex, "Please enter a valid 12-digit Aadhaar number.");
+
+    const ifsc = document.getElementById("ifsc_code");
+    validateInput(ifsc, ifscRegex, "Please enter a valid IFSC code (e.g., ABCD0123456).");
+
+    // Stop submission if invalid
+    if (!valid) e.preventDefault();
+  });
+});
+
+    </script> -->
+</body>
+<script >
+  const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
+const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
+const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
+const header = document.querySelector('.header.container');
+
+hamburger.addEventListener('click', () => {
+hamburger.classList.toggle('active');
+mobile_menu.classList.toggle('active');
+});
+
+document.addEventListener('scroll', () => {
+var scroll_position = window.scrollY;
+if (scroll_position > 250) {
+  header.style.backgroundColor = '#29323c';
+} else {
+  header.style.backgroundColor = 'transparent';
+}
+});
+
+menu_item.forEach((item) => {
+item.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobile_menu.classList.toggle('active');
+});
+});
+
+</script>
+</html>

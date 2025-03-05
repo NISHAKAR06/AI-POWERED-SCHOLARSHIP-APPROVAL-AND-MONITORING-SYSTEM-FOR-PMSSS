@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" text="text/css" href="{{url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="./app.js"></script>
+  <script>
+
+    (function() {
+      emailjs.init("QMfnfHiP4Q3OE39ds"); // Replace with your EmailJS User ID
+    })();
+  </script>
+
+  <title>Register Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* Center the registration form */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      padding: 20px;
+    }
+
+    .login-box {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #333;
+    }
+
+    .login-box label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"],
+    .login-box input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .login-box input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .login-box input[type="submit"]:hover {
+      background-color: #555;
+    }
+
+    .forgot-password {
+      text-align: center;
+      margin-top: -10px;
+    }
+
+    .forgot-password a {
+      color: #333;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+    * Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Registration Box Styles */
+    .register-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .register-container h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .register-container label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 14px;
+      text-align: left;
+      color: #333;
+    }
+
+    .register-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .register-container button {
+      width: 100%;
+      padding: 12px;
+      background-color:red;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .register-container button:hover {
+      background-color: red;
+    }
+
+    .register-container #v {
+      background-color: grey;
+      margin-bottom: 10px;
+    }
+
+    .register-container #v:hover {
+      background-color: grey;
+    }
+
+    .register-container a {
+      display: block;
+      margin-top: 15px;
+      font-size: 14px;
+      color: black;
+      text-decoration: none;
+    }
+
+    .register-container a:hover {
+      text-decoration: underline;
+    }
+
+    /* Alert Messages */
+    .alert {
+      color: #FF0000;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+  
+<body>
+
+  <!-- Header Section -->
+  <section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero">
+            <h1><span>P</span>M<span>SSS</span></h1>
+          </a>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+            
+           
+            <li><a href="{{url_for('about') }}" class="nav-link">About</a></li>
+            
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="register-container">
+    <h2>Register</h2>
+    <form id="register-form" action="{{url_for('register')}}" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="otp">Enter OTP:</label>
+      <input type="text" id="otp" name="otp" placeholder="Enter OTP received via email" disabled required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <button type="button" id="v" onclick="sendOTP()">Send OTP</button>
+      <button  type="submit" id="register-btn" disabled  > <a href="{{ url_for('login') }}" </a> Register</button>
+    </form>
+    <a href="{{ url_for('login') }}">Already have an account? Login here</a>
+  </div>
+
+  <script>
+    let generatedOTP = null;
+
+    // Generate a 6-digit OTP
+    function generateOTP() {
+      return Math.floor(100000 + Math.random() * 900000);
+    }
+
+    // Function to send OTP
+    function sendOTP() {
+      const email = document.getElementById("email").value;
+      const username = document.getElementById("username").value;
+
+      if (!email || !username) {
+        alert("Please fill out your username and email.");
+        return;
+      }
+
+      generatedOTP = generateOTP();
+
+      const templateParams = {
+        email: email,
+        to_name: username,
+        otp: generatedOTP
+      };
+
+      emailjs.send('service_tlbc3w4', 'template_k7pbtce', templateParams)
+  .then(function(response) {
+    console.log('SUCCESS!', response.status, response.text);
+    alert("OTP has been sent to your email!");
+    document.getElementById("otp").disabled = false;
+    document.getElementById("register-btn").disabled = false;
+  }, function(error) {
+    console.error('FAILED...', error);
+    alert("Failed to send OTP. Please try again.");
+  });
+
+    }
+
+    // Validate OTP on form submission
+    document.getElementById("register-form").addEventListener("submit", function(event) {
+      const enteredOTP = document.getElementById("otp").value;
+
+      if (enteredOTP != generatedOTP) {
+        event.preventDefault();
+        alert("Invalid OTP. Please check your email and try again.");
+      }
+    });
+
+    
+      const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
+  const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
+  const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
+  const header = document.querySelector('.header.container');
+  
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobile_menu.classList.toggle('active');
+  });
+  
+  document.addEventListener('scroll', () => {
+    var scroll_position = window.scrollY;
+    if (scroll_position > 250) {
+      header.style.backgroundColor = '#29323c';
+    } else {
+      header.style.backgroundColor = 'transparent';
+    }
+  });
+  
+  menu_item.forEach((item) => {
+    item.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobile_menu.classList.toggle('active');
+    });
+  });
+  
+
+  </script>
+</body>
+
+</html>

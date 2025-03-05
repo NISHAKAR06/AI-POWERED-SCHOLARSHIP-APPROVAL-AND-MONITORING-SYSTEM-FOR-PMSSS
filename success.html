@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success - AI Approval Process Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+        }
+
+        .header, .footer {
+            width: 100%;
+            background-color: #333;
+            color: #eeeeca;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        .message-box {
+            width: 80%;
+            max-width: 600px;
+            margin: 2em auto;
+            padding: 2em;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 0.5em 1em;
+            margin-top: 1em;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        .link-btn {
+            text-align: center;
+            margin-top: 1em;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            alert("Registration successful!");
+        });
+    </script>
+</head>
+<body>
+    <header class="header">
+        <h1>Success</h1>
+    </header>
+
+    <section class="message-box">
+        <p>Registration successful!</p>
+        <div class="link-btn">
+            <a href="{% url 'login' %}" class="btn">Go to Login</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 AI Approval Process Portal</p>
+    </footer>
+</body>
+</html>

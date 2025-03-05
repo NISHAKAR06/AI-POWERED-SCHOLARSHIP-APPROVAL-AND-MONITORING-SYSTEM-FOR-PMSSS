@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Upload</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: crimson;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 8px;
+            background: #fff;
+            transition: 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        .input-wrapper:hover {
+            border-color: crimson;
+        }
+
+        .input-wrapper i {
+            color: crimson;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .input-wrapper input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            background: transparent;
+        }
+
+        .btn-upload {
+            width: 100%;
+            padding: 10px;
+            background: rgb(210, 44, 77);
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            margin-top: 10px;
+        }
+
+        .btn-upload:hover {
+            background: darkred;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+            }
+
+            .input-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn-upload {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Upload Your Documents</h2>
+
+        <form action="your-server-endpoint" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="aadhaar">Aadhaar Card</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-id-card"></i>
+                    <input type="file" id="aadhaar" name="aadhaar" accept=".jpg,.jpeg,.png,.pdf" required>
+                </div>
+                <button type="submit" class="btn-upload">Upload</button>
+            </div>
+
+            <div class="form-group">
+                <label for="bonafide">Bonafide Certificate</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-file-alt"></i>
+                    <input type="file" id="bonafide" name="bonafide" accept=".pdf,.jpg,.jpeg" required>
+                </div>
+                <button type="submit" class="btn-upload">Upload</button>
+            </div>
+
+            <div class="form-group">
+                <label for="marksheet">Marksheet</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-graduation-cap"></i>
+                    <input type="file" id="marksheet" name="marksheet" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+                <button type="submit" class="btn-upload">Upload</button>
+            </div>
+
+            <div class="form-group">
+                <label for="bank_passbook">Bank Passbook</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-university"></i>
+                    <input type="file" id="bank_passbook" name="bank_passbook" accept=".jpg,.jpeg,.png,.pdf" required>
+                </div>
+                <button type="submit" class="btn-upload">Upload</button>
+            </div>
+
+            <div class="form-group">
+                <label for="sign">Signature</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-pen"></i>
+                    <input type="file" id="sign" name="sign" accept=".jpg,.jpeg,.png" required>
+                </div>
+                <button type="submit" class="btn-upload">Upload</button>
+            </div>
+
+            <div class="form-group">
+                <label for="photo">Passport Photo</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-user"></i>
+                    <input type="file" id="photo" name="photo" accept=".jpg,.jpeg,.png" required>
+                </div>
+                <button type="submit" class="btn-upload">Upload</button>
+            </div>
+
+            <div class="form-group">
+                <label for="community_income">Community & Income Certificate</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-file-invoice"></i>
+                    <input type="file" id="community_income" name="community_income" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+                <button type="submit" class="btn-upload">Upload</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
